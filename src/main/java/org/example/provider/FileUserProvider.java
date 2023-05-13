@@ -1,5 +1,6 @@
 package org.example.provider;
 
+import lombok.NoArgsConstructor;
 import org.example.model.Address;
 import org.example.model.Role;
 import org.example.model.User;
@@ -10,9 +11,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor
 public class FileUserProvider implements UserProvider {
 
-    private final String filePath = "src/main/resources/users";
+    private  String filePath = "src/main/resources/users";
+
+    public FileUserProvider(String filePath) {
+        this.filePath = filePath;
+    }
 
     @Override
     public Set<User> getAllUsers() {
@@ -54,9 +60,9 @@ public class FileUserProvider implements UserProvider {
 
     private List<Role> mapToRole(String[] splitUserData) {
 
-      return Arrays.stream(splitUserData[9].split("/"))
-               .map(splitRoles -> Role.valueOf(splitRoles))
-               .collect(Collectors.toList());
+        return Arrays.stream(splitUserData[9].split("/"))
+                .map(splitRoles -> Role.valueOf(splitRoles))
+                .collect(Collectors.toList());
     }
 
 
