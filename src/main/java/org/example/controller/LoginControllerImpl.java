@@ -7,13 +7,19 @@ import org.example.view.LoginView;
 import org.example.view.MainMenuView;
 import org.example.view.View;
 
+import java.util.Optional;
 
-public class LoginControllerImpl implements LoginController{
+
+public class LoginControllerImpl implements LoginController {
 
     private UserLoginChecker userLoginChecker;
 
     public LoginControllerImpl() {
         this.userLoginChecker = new UserService();
+    }
+
+    public LoginControllerImpl(UserLoginChecker userLoginChecker) {
+        this.userLoginChecker = userLoginChecker;
     }
 
     @Override
@@ -22,6 +28,8 @@ public class LoginControllerImpl implements LoginController{
         if (userLoginChecker.checkLogin(userLoginData)) {
             return new MainMenuView();
         }
-        return new LoginView();
+        return new LoginView(
+                Optional.of("Podano niepoprawny login lub haslo")
+        );
     }
 }

@@ -7,10 +7,14 @@ import org.example.provider.UserProvider;
 
 public class UserService implements UserLoginChecker {
 
-    private UserProvider userProvider;
+    private final UserProvider userProvider;
 
     public UserService() {
         userProvider = new FileUserProvider();
+    }
+
+    public UserService(UserProvider userProvider) {
+        this.userProvider = userProvider;
     }
 
     @Override
@@ -20,7 +24,7 @@ public class UserService implements UserLoginChecker {
                 .anyMatch(user -> checkIfUserPasswordIsCorrect(userLoginData, user));
     }
 
-    private static boolean checkIfUserPasswordIsCorrect(UserLoginData userLoginData, User user) {
+    private boolean checkIfUserPasswordIsCorrect(UserLoginData userLoginData, User user) {
         return userLoginData.getPassword().equals(user.getLogin());
     }
 
