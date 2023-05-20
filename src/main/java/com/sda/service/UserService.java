@@ -35,7 +35,7 @@ public class UserService implements UserLoginChecker {
     }
 
     private boolean checkIfUserExist(UserLoginData userLoginData, User user) {
-        return user.getLogin().equals(userLoginData.getLogin());
+        return user.getLogin().equals(userLoginData.getLogin()
+        );
     }
-
 }

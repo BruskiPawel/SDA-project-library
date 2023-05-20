@@ -7,5 +7,6 @@ import java.util.Map;
 
 public interface BookController {
     Map<Integer, Book> getAllBooks();
+
     Map<Integer, Book> getBooksByAuthor(Author author);
 }

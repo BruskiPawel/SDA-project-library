@@ -4,7 +4,6 @@ import com.sda.BookDataFactory;
 import com.sda.model.Author;
 import com.sda.model.Book;
 import com.sda.provider.BookProvider;
-import com.sda.view.View;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 
 import static com.sda.BookDataFactory.BOOK1;
 import static com.sda.BookDataFactory.BOOK3;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class BookControllerImplTest {
 
@@ -26,11 +25,12 @@ class BookControllerImplTest {
 
         @Override
         public List<Book> getBooksByAuthor(Author author) {
-           return getAllBooks().stream()
+            return getAllBooks().stream()
                     .filter(book -> book.getAuthor().equals(author))
                     .collect(Collectors.toList());
         }
     });
+
     @Test
     void shouldReturnMapOfBooksByAuthor() {
         //given

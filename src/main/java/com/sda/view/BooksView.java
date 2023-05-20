@@ -17,7 +17,7 @@ abstract class BooksView {
         return bookController;
     }
 
-    public void display(Map<Integer, Book> books){
+    public void display(Map<Integer, Book> books) {
         System.out.println("no, title, isbn, author, release date");
         books.forEach((integer, book) -> System.out.println(integer + ". " + book));
     }

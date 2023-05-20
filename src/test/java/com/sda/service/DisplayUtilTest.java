@@ -22,7 +22,7 @@ class DisplayUtilTest {
         Map<Integer, ExampleClass> expectedResult = Map.of(1, exampleClass1, 2, exampleClass2);
         DisplayUtil<ExampleClass> displayUtil = new DisplayUtil<>();
         // when
-        Map<Integer,ExampleClass> result = displayUtil.getItems(exampleList);
+        Map<Integer, ExampleClass> result = displayUtil.getItems(exampleList);
         // then
         Assertions.assertThat(result).isEqualTo(expectedResult);
     }

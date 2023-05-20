@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @NoArgsConstructor
-public class FileBookProvider implements BookProvider{
+public class FileBookProvider implements BookProvider {
 
     private String filePath = "src/main/resources/books";
 
@@ -34,7 +34,7 @@ public class FileBookProvider implements BookProvider{
     }
 
     @Override
-    public List<Book> getBooksByAuthor(Author author){
+    public List<Book> getBooksByAuthor(Author author) {
         return getAllBooks().stream()
                 .filter(book -> book.getAuthor().equals(author))
                 .collect(Collectors.toList());

@@ -29,7 +29,6 @@ public class BookDataFactory {
             .build();
 
 
-
     private static final List<Book> EXPECTED_BOOKS = List.of(BOOK1, BOOK2, BOOK3);
 
     public static List<Book> getExampleBooksData() {

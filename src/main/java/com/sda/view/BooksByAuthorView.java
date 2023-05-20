@@ -4,7 +4,7 @@ import com.sda.model.Author;
 
 import java.util.Scanner;
 
-public class BooksByAuthorView extends BooksView implements View{
+public class BooksByAuthorView extends BooksView implements View {
 
     private Scanner scanner;
 
@@ -17,11 +17,11 @@ public class BooksByAuthorView extends BooksView implements View{
         display(getBookController().getBooksByAuthor(getAuthor()));
     }
 
-    private Author getAuthor(){
+    private Author getAuthor() {
         System.out.println("Podaj imię autora: ");
         String firstName = scanner.nextLine();
         System.out.println("Podaj nazwisko autora: ");
         String lastName = scanner.nextLine();
-        return new Author(firstName,lastName);
+        return new Author(firstName, lastName);
     }
 }
